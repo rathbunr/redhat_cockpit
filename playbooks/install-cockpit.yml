@@ -1,0 +1,13 @@
+- name: Install and configure Cockpit
+  hosts: rhel9
+  become: true
+  roles:
+    - role: cockpit_wrapper
+      vars:
+        cockpit_packages: default
+        cockpit_manage_firewall: true
+        cockpit_manage_selinux: true
+        cockpit_config:
+          WebService:
+            LoginTitle: "Rathbun IT Cockpit"
+            MaxStartups: 20
